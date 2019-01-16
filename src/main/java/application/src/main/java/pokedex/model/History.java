@@ -8,17 +8,17 @@ public class History {
 	/**
 	 * Description of the property pokemon.
 	 */
-	public model.Pokemon pokemon = null;
+	public Pokemon pokemon = null;
 	
 	// Start of user code (user defined attributes)
 	
 	// End of user code
 	
-		public model.Pokemon getPokemon(){
+		public Pokemon getPokemon(){
 		   return this.pokemon;
 		}
 		
-		public void setPokemon(model.Pokemon pokemon){
+		public void setPokemon(Pokemon pokemon){
 		   this.pokemon = pokemon;
 		}
 		
