@@ -4,26 +4,25 @@ package application.src.main.java.pokedex.controller;
 
 // End of user code
 
+import application.src.main.java.pokedex.endpoint.APIController;
+import application.src.main.java.pokedex.model.History;
+import application.src.main.java.pokedex.model.Pokemon;
+
 public class PokedexController {
 	/**
 	 * Description of the property history.
 	 */
-	public model.History history = null;
-	
-	/**
-	 * Description of the property history.
-	 */
-	public model.History history = null;
+	public History history = null;
 	
 	/**
 	 * Description of the property restcontroller.
 	 */
-	public controller.RestController restcontroller = null;
+	public RestController restcontroller = null;
 	
 	/**
 	 * Description of the property apicontroller.
 	 */
-	public endpoint.APIController apicontroller = null;
+	public APIController apicontroller = null;
 	
 	// Start of user code (user defined attributes)
 	
@@ -44,13 +43,13 @@ public class PokedexController {
 	    return INSTANCE;
 	}
 	
-	private void respond(model.Pokemon pokemon) throws Exception {
+	private void respond(Pokemon pokemon) throws Exception {
 		// Start of user code respond
 		
 		// End of user code
 	}
 	
-	private void addToHistory(model.Pokemon pokemon) throws Exception {
+	private void addToHistory(Pokemon pokemon) throws Exception {
 		// Start of user code addToHistory
 		
 		// End of user code
@@ -62,7 +61,7 @@ public class PokedexController {
 		// End of user code
 	}
 	
-	public void getHistory(model.History pokeHistory) throws Exception {
+	public void getHistory(History pokeHistory) throws Exception {
 		// Start of user code getHistory
 		
 		// End of user code
