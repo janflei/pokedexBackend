@@ -5,7 +5,6 @@ package at.fhv.pokedex.controller;
 // End of user code
 
 import at.fhv.pokedex.model.Pokemon;
-import jdk.nashorn.internal.parser.JSONParser;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -16,9 +15,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
-import java.util.Set;
-
-import static org.apache.logging.log4j.message.MapMessage.MapFormat.JSON;
 
 
 public class RestController {

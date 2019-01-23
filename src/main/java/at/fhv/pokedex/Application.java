@@ -1,5 +1,6 @@
 package at.fhv.pokedex;
 
+import at.fhv.pokedex.endpoint.APIController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,6 +12,6 @@ public class Application {
 	* @param args The command line arguments
 	*/
     public static void main(String... args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(APIController.class, args);
     }
 }
