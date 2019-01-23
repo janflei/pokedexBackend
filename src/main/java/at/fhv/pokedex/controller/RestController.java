@@ -101,15 +101,15 @@ public class RestController {
 		// Start of user code parseResponse
         JSONObject json = new JSONObject(response);
         Pokemon pokemon = new Pokemon();
-        pokemon.setBaseexp("");
-        pokemon.setHeight("");
-        pokemon.setImageurl("");
-        pokemon.setName("");
-        pokemon.setOrder("");
+        pokemon.setBaseexp("base_experience");
+        pokemon.setHeight("height");
+        pokemon.setImageurl("sprites");
+        pokemon.setName("name");
+        pokemon.setOrder("order");
         JSONArray arr = new JSONArray(json.getJSONArray("types"));
-
+        //Set<String> set = new HashSet<String>(arr.toList());
         pokemon.setTypes(new HashSet<String>());
-        pokemon.setWeight("");
+        pokemon.setWeight("weight");
         return pokemon;
 		// End of user code
 	}
