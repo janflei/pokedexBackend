@@ -1,4 +1,4 @@
-package pokedex.controller;
+package at.fhv.pokedex.controller;
 
 // Start of user code (user defined imports)
 

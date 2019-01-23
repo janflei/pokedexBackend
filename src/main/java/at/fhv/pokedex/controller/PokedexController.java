@@ -1,24 +1,24 @@
-package pokedex.controller;
+package at.fhv.pokedex.controller;
 
 // Start of user code (user defined imports)
 
 // End of user code
 
-public class PokedexController {
+/*package*/ class PokedexController {
 	/**
 	 * Description of the property history.
 	 */
-	public model.History history = null;
+	public at.fhv.pokedex.model.History history = null;
 	
 	/**
 	 * Description of the property restcontroller.
 	 */
-	public controller.RestController restcontroller = null;
+	public at.fhv.pokedex.controller.RestController restcontroller = null;
 	
 	/**
 	 * Description of the property apicontroller.
 	 */
-	public endpoint.APIController apicontroller = null;
+	public at.fhv.pokedex.endpoint.APIController apicontroller = null;
 	
 	// Start of user code (user defined attributes)
 	
@@ -45,19 +45,19 @@ public class PokedexController {
 		// End of user code
 	}
 	
-	public void getHistory(model.History pokeHistory) throws Exception {
+	public void getHistory(at.fhv.pokedex.model.History pokeHistory) throws Exception {
 		// Start of user code getHistory
 		
 		// End of user code
 	}
 	
-	private void addToHistory(model.Pokemon pokemon) throws Exception {
+	private void addToHistory(at.fhv.pokedex.model.Pokemon pokemon) throws Exception {
 		// Start of user code addToHistory
 		
 		// End of user code
 	}
 	
-	private void respond(model.Pokemon pokemon) throws Exception {
+	private void respond(at.fhv.pokedex.model.Pokemon pokemon) throws Exception {
 		// Start of user code respond
 		
 		// End of user code

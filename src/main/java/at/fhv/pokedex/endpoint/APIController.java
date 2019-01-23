@@ -1,4 +1,4 @@
-package pokedex.endpoint;
+package at.fhv.pokedex.endpoint;
 
 // Start of user code (user defined imports)
 
