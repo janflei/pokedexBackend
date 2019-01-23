@@ -5,6 +5,9 @@ package at.fhv.pokedex.controller;
 // End of user code
 
 import at.fhv.pokedex.model.Pokemon;
+import jdk.nashorn.internal.parser.JSONParser;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +15,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.apache.logging.log4j.message.MapMessage.MapFormat.JSON;
 
 
 public class RestController {
@@ -88,11 +95,22 @@ public class RestController {
 	public String getRestURL() throws Exception {
         // Start of user code getRestURL
         return restURL;
-
+        // End of user code
     }
 	private at.fhv.pokedex.model.Pokemon parseResponse(String response) throws Exception {
 		// Start of user code parseResponse
-        return new Pokemon();
+        JSONObject json = new JSONObject(response);
+        Pokemon pokemon = new Pokemon();
+        pokemon.setBaseexp("");
+        pokemon.setHeight("");
+        pokemon.setImageurl("");
+        pokemon.setName("");
+        pokemon.setOrder("");
+        JSONArray arr = new JSONArray(json.getJSONArray("types"));
+
+        pokemon.setTypes(new HashSet<String>());
+        pokemon.setWeight("");
+        return pokemon;
 		// End of user code
 	}
 
