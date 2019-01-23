@@ -20,14 +20,11 @@ public class History {
 		if(INSTANCE == null){
 			INSTANCE = new History();
 		}
-
 		return INSTANCE;
 	}
 
 	public void addPokemon(Pokemon pokemon) {
-	    if(!pokemonlist.contains(pokemon)) {
-            this.pokemonlist.add(pokemon);
-        }
+	    this.pokemonlist.add(pokemon);
 	}
 
 	public Set<Pokemon> getHistory() {

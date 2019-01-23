@@ -42,27 +42,32 @@ import at.fhv.pokedex.model.Pokemon;
 	    return INSTANCE;
 	}
 	
-	public void request(String pokeName) throws Exception {
+	public Pokemon request(String pokeName) throws Exception {
 		// Start of user code request
 		Pokemon poke = null;
 		if(History.getInstance().containsPokemon(pokeName)){
-			poke = History.getInstance().getPokemonByName(pokeName);
+			poke = history.getPokemonByName(pokeName);
 		} else {
 			RestController.getInstance().requestPokemon(pokeName);
 		}
-		History.getInstance().addPokemon(poke);
+		if(poke != null) {
+            addToHistory(poke);
+        }
+		return poke;
 		// End of user code
 	}
 	
 	public at.fhv.pokedex.model.History getHistory() throws Exception {
 		// Start of user code getHistory
-		
+		return history;
 		// End of user code
 	}
 	
 	private void addToHistory(at.fhv.pokedex.model.Pokemon pokemon) throws Exception {
 		// Start of user code addToHistory
-
+        if(!history.containsPokemon(pokemon.getName())){
+            history.addPokemon(pokemon);
+        }
 		// End of user code
 	}
 	
