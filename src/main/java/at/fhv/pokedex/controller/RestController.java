@@ -29,26 +29,26 @@ public class RestController {
 	    return INSTANCE;
 	}
 	
-	public void setRestURL(String restURL) throws Exception {
-		// Start of user code setRestURL
+	public String getRestURL() throws Exception {
+		// Start of user code getRestURL
 		
 		// End of user code
 	}
 	
-	private void parseResponse(String response) throws Exception {
-		// Start of user code parseResponse
-		
-		// End of user code
-	}
-	
-	public void requestPokemon(String pokeName) throws Exception {
+	public at.fhv.pokedex.model.Pokemon requestPokemon(String pokeName) throws Exception {
 		// Start of user code requestPokemon
 		
 		// End of user code
 	}
 	
-	public void getRestURL() throws Exception {
-		// Start of user code getRestURL
+	private at.fhv.pokedex.model.Pokemon parseResponse(String response) throws Exception {
+		// Start of user code parseResponse
+		
+		// End of user code
+	}
+	
+	public void setRestURL(String restURL) throws Exception {
+		// Start of user code setRestURL
 		
 		// End of user code
 	}

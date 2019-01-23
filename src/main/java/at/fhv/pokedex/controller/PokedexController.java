@@ -39,13 +39,19 @@ package at.fhv.pokedex.controller;
 	    return INSTANCE;
 	}
 	
+	private void respond(at.fhv.pokedex.model.Pokemon pokemon) throws Exception {
+		// Start of user code respond
+		
+		// End of user code
+	}
+	
 	public void request(String pokeName) throws Exception {
 		// Start of user code request
 		
 		// End of user code
 	}
 	
-	public void getHistory(at.fhv.pokedex.model.History pokeHistory) throws Exception {
+	public at.fhv.pokedex.model.History getHistory() throws Exception {
 		// Start of user code getHistory
 		
 		// End of user code
@@ -53,12 +59,6 @@ package at.fhv.pokedex.controller;
 	
 	private void addToHistory(at.fhv.pokedex.model.Pokemon pokemon) throws Exception {
 		// Start of user code addToHistory
-		
-		// End of user code
-	}
-	
-	private void respond(at.fhv.pokedex.model.Pokemon pokemon) throws Exception {
-		// Start of user code respond
 		
 		// End of user code
 	}

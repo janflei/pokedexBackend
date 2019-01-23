@@ -6,20 +6,20 @@ package at.fhv.pokedex.model;
 
 public class History {
 	/**
-	 * Description of the property pokemon.
+	 * Description of the property pokemonlist.
 	 */
-	public java.util.Set<at.fhv.pokedex.model.Pokemon> pokemon = new java.util.HashSet<at.fhv.pokedex.model.Pokemon>();
+	public java.util.Set<at.fhv.pokedex.model.Pokemon> pokemonlist = new java.util.HashSet<at.fhv.pokedex.model.Pokemon>();
 	
 	// Start of user code (user defined attributes)
 	
 	// End of user code
 	
-		public java.util.Set<at.fhv.pokedex.model.Pokemon> getPokemon(){
-		   return this.pokemon;
+		public java.util.Set<at.fhv.pokedex.model.Pokemon> getPokemonlist(){
+		   return this.pokemonlist;
 		}
 		
-		public void setPokemon(java.util.Set<at.fhv.pokedex.model.Pokemon> pokemon){
-		   this.pokemon = pokemon;
+		public void setPokemonlist(java.util.Set<at.fhv.pokedex.model.Pokemon> pokemonlist){
+		   this.pokemonlist = pokemonlist;
 		}
 		
 	
