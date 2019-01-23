@@ -4,16 +4,18 @@ package at.fhv.pokedex.controller;
 
 // End of user code
 
+import at.fhv.pokedex.model.History;
+
 /*package*/ class PokedexController {
 	/**
 	 * Description of the property history.
 	 */
-	public at.fhv.pokedex.model.History history = null;
+	public at.fhv.pokedex.model.History history = History.getInstance();
 	
 	/**
 	 * Description of the property restcontroller.
 	 */
-	public at.fhv.pokedex.controller.RestController restcontroller = null;
+	public at.fhv.pokedex.controller.RestController restcontroller = RestController.getInstance();
 	
 	/**
 	 * Description of the property apicontroller.
@@ -59,7 +61,7 @@ package at.fhv.pokedex.controller;
 	
 	private void addToHistory(at.fhv.pokedex.model.Pokemon pokemon) throws Exception {
 		// Start of user code addToHistory
-		
+
 		// End of user code
 	}
 	

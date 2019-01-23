@@ -4,6 +4,8 @@ package at.fhv.pokedex.model;
 
 // End of user code
 
+import java.util.Set;
+
 public class History {
 	/**
 	 * Description of the property pokemonlist.
@@ -11,7 +13,25 @@ public class History {
 	public java.util.Set<at.fhv.pokedex.model.Pokemon> pokemonlist = new java.util.HashSet<at.fhv.pokedex.model.Pokemon>();
 	
 	// Start of user code (user defined attributes)
-	
+
+	private static History INSTANCE;
+
+	public static History getInstance(){
+		if(INSTANCE == null){
+			INSTANCE = new History();
+		}
+
+		return INSTANCE;
+	}
+
+	public void addPokemon(Pokemon pokemon) {
+		this.pokemonlist.add(pokemon);
+	}
+
+	public Set<Pokemon> getHistory() {
+		return getPokemonlist();
+	}
+
 	// End of user code
 	
 		public java.util.Set<at.fhv.pokedex.model.Pokemon> getPokemonlist(){
