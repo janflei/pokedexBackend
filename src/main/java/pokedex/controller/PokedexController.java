@@ -2,7 +2,7 @@ package pokedex.controller;
 
 // Start of user code (user defined imports)
 
-// End of user codee
+// End of user code
 
 public class PokedexController {
 	/**
