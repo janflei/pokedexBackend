@@ -25,7 +25,9 @@ public class History {
 	}
 
 	public void addPokemon(Pokemon pokemon) {
-		this.pokemonlist.add(pokemon);
+	    if(!pokemonlist.contains(pokemon)) {
+            this.pokemonlist.add(pokemon);
+        }
 	}
 
 	public Set<Pokemon> getHistory() {

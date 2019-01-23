@@ -44,12 +44,13 @@ import at.fhv.pokedex.model.Pokemon;
 	
 	public void request(String pokeName) throws Exception {
 		// Start of user code request
-		Pokemon p;
+		Pokemon poke = null;
 		if(History.getInstance().containsPokemon(pokeName)){
-			p = History.getInstance().getPokemonByName(pokeName);
+			poke = History.getInstance().getPokemonByName(pokeName);
 		} else {
 			RestController.getInstance().requestPokemon(pokeName);
 		}
+		History.getInstance().addPokemon(poke);
 		// End of user code
 	}
 	
