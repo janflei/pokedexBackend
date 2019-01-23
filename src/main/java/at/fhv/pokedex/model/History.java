@@ -34,13 +34,30 @@ public class History {
 
 	// End of user code
 	
-		public java.util.Set<at.fhv.pokedex.model.Pokemon> getPokemonlist(){
-		   return this.pokemonlist;
-		}
+	public java.util.Set<at.fhv.pokedex.model.Pokemon> getPokemonlist(){
+		return this.pokemonlist;
+	}
 		
-		public void setPokemonlist(java.util.Set<at.fhv.pokedex.model.Pokemon> pokemonlist){
-		   this.pokemonlist = pokemonlist;
-		}
-		
+	public void setPokemonlist(java.util.Set<at.fhv.pokedex.model.Pokemon> pokemonlist){
+	   this.pokemonlist = pokemonlist;
+	}
+
+	public Pokemon getPokemonByName(String name){
+	    for(Pokemon p : pokemonlist){
+	        if(p.getName().equals(name)){
+	            return p;
+            }
+        }
+        return null;
+    }
+
+	public boolean containsPokemon(String name){
+	    for(Pokemon p : pokemonlist){
+	        if(p.getName().equals(name)){
+	            return true;
+            }
+        }
+        return false;
+    }
 	
 }

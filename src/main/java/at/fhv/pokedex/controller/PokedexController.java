@@ -5,6 +5,7 @@ package at.fhv.pokedex.controller;
 // End of user code
 
 import at.fhv.pokedex.model.History;
+import at.fhv.pokedex.model.Pokemon;
 
 /*package*/ class PokedexController {
 	/**
@@ -41,15 +42,14 @@ import at.fhv.pokedex.model.History;
 	    return INSTANCE;
 	}
 	
-	private void respond(at.fhv.pokedex.model.Pokemon pokemon) throws Exception {
-		// Start of user code respond
-		
-		// End of user code
-	}
-	
 	public void request(String pokeName) throws Exception {
 		// Start of user code request
-		
+		Pokemon p;
+		if(History.getInstance().containsPokemon(pokeName)){
+			p = History.getInstance().getPokemonByName(pokeName);
+		} else {
+			RestController.getInstance().requestPokemon(pokeName);
+		}
 		// End of user code
 	}
 	
