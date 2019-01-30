@@ -11,17 +11,7 @@ public class PokedexController {
 	/**
 	 * Description of the property history.
 	 */
-	public at.fhv.pokedex.model.History history = History.getInstance();
-	
-	/**
-	 * Description of the property restcontroller.
-	 */
-	public at.fhv.pokedex.controller.RestController restcontroller = RestController.getInstance();
-	
-	/**
-	 * Description of the property apicontroller.
-	 */
-	public at.fhv.pokedex.endpoint.APIController apicontroller = null;
+	public static at.fhv.pokedex.model.History history = History.getInstance();
 	
 	// Start of user code (user defined attributes)
 	
