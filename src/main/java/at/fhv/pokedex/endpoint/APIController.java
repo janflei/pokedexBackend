@@ -16,14 +16,12 @@ public class APIController {
 
 	@org.springframework.web.bind.annotation.GetMapping(path="/")
 	String home() {
-		System.out.println("Test");
 		return "Hello World!";
 	}
 
 	@org.springframework.web.bind.annotation.GetMapping(path="/history")
 	public History getHistory() throws Exception {
 		// Start of user code getHistory
-		System.out.println("HISTORY");
 		return PokedexController.getInstance().getHistory();
 		// End of user code
 	}
@@ -31,7 +29,6 @@ public class APIController {
 	@org.springframework.web.bind.annotation.GetMapping(path="/pokemon")
 	public at.fhv.pokedex.model.Pokemon getPokemon(@org.springframework.web.bind.annotation.RequestParam("token") String token) throws Exception {
 		// Start of user code getPokemon
-		System.out.println("POKEMON");
 		return PokedexController.getInstance().request(token);
 		// End of user code
 	}

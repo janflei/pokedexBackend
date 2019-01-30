@@ -43,7 +43,7 @@ public class History {
 
 	public Pokemon getPokemonByName(String name){
 	    for(Pokemon p : pokemonlist){
-	        if(p.getName().equals(name)){
+	        if(p.getName().toLowerCase().equals(name.toLowerCase())){
 	            return p;
             }
         }
@@ -52,7 +52,7 @@ public class History {
 
 	public boolean containsPokemon(String name){
 	    for(Pokemon p : pokemonlist){
-	        if(p.getName().equals(name)){
+	        if(p.getName().toLowerCase().equals(name.toLowerCase())){
 	            return true;
             }
         }

@@ -48,7 +48,7 @@ public class PokedexController {
 		if(History.getInstance().containsPokemon(pokeName)){
 			poke = history.getPokemonByName(pokeName);
 		} else {
-			RestController.getInstance().requestPokemon(pokeName);
+			poke = RestController.getInstance().requestPokemon(pokeName);
 		}
 		if(poke != null) {
             addToHistory(poke);

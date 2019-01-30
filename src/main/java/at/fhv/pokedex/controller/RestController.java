@@ -7,7 +7,9 @@ package at.fhv.pokedex.controller;
 import at.fhv.pokedex.model.Pokemon;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.boot.json.GsonJsonParser;
 
+import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,6 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashSet;
+import java.util.Set;
 
 
 public class RestController {
@@ -29,7 +32,7 @@ public class RestController {
 	
 
 	private static RestController INSTANCE;
-	
+
 	private RestController(){
 	    // singleton
 	}
@@ -52,11 +55,13 @@ public class RestController {
 	public at.fhv.pokedex.model.Pokemon requestPokemon(String pokeName) throws Exception {
 		// Start of user code requestPokemon
         StringBuilder output = new StringBuilder();
+        HttpURLConnection conn = null;
         try {
 
             URL url = new URL(restURL + pokeName);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn = (HttpsURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
+            conn.setRequestProperty("User-Agent", "Super_Pokedex_3000");
             conn.setRequestProperty("Accept", "application/json");
 
             if (conn.getResponseCode() != 200) {
@@ -68,12 +73,12 @@ public class RestController {
                     (conn.getInputStream())));
 
 
-            System.out.println("Output from Server .... \n");
+            //System.out.println("Output from Server .... \n");
             String line;
             while ((line = br.readLine()) != null) {
                 output.append(line);
             }
-
+            br.close();
             conn.disconnect();
 
         } catch (MalformedURLException e) {
@@ -83,7 +88,10 @@ public class RestController {
         } catch (IOException e) {
 
             e.printStackTrace();
+        } finally {
+            conn.disconnect();
         }
+
 		// End of user code
         return parseResponse(output.toString());
 	}
@@ -95,17 +103,21 @@ public class RestController {
     }
 	private at.fhv.pokedex.model.Pokemon parseResponse(String response) throws Exception {
 		// Start of user code parseResponse
+        System.out.println(response);
         JSONObject json = new JSONObject(response);
         Pokemon pokemon = new Pokemon();
-        pokemon.setBaseexp("base_experience");
-        pokemon.setHeight("height");
-        pokemon.setImageurl("sprites");
-        pokemon.setName("name");
-        pokemon.setOrder("order");
-        JSONArray arr = new JSONArray(json.getJSONArray("types"));
-        //Set<String> set = new HashSet<String>(arr.toList());
-        pokemon.setTypes(new HashSet<String>());
-        pokemon.setWeight("weight");
+        pokemon.setBaseexp(json.getInt("base_experience") + "");
+        pokemon.setHeight(json.getInt("height") + "");
+        pokemon.setImageurl(json.getJSONObject("sprites").getString("front_default"));
+        pokemon.setName(json.getString("name"));
+        pokemon.setOrder(json.getInt("order")+"");
+        pokemon.setWeight(json.getInt("weight")+"");
+        JSONArray arr = json.getJSONArray("types");
+        Set<String> set = new HashSet<String>();
+        for (int i = 0; i < arr.length(); i++) {
+            set.add(arr.getJSONObject(i).getJSONObject("type").getString("name"));
+        }
+        pokemon.setTypes(set);
         return pokemon;
 		// End of user code
 	}
