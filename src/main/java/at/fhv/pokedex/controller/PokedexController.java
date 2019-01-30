@@ -7,7 +7,7 @@ package at.fhv.pokedex.controller;
 import at.fhv.pokedex.model.History;
 import at.fhv.pokedex.model.Pokemon;
 
-/*package*/ class PokedexController {
+public class PokedexController {
 	/**
 	 * Description of the property history.
 	 */
