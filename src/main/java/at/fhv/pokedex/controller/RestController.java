@@ -61,7 +61,7 @@ public class RestController {
             URL url = new URL(restURL + pokeName);
             conn = (HttpsURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-            conn.setRequestProperty("User-Agent", "Super_Pokedex_3000");
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0");
             conn.setRequestProperty("Accept", "application/json");
 
             if (conn.getResponseCode() != 200) {
