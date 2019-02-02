@@ -6,10 +6,10 @@ jobs:
     - stage: static code analysis
       addons:
         sonarcloud:
-          organization: "mega-pokedex"
+          organization: mega-pokedex
           token: $SonarToken
       script:
-        - sonar-scanner
+        - mvn package sonar:sonar
     - stage: deploy to staging
       script: skip
       deploy:
