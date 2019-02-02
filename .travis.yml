@@ -8,4 +8,4 @@ jobs:
       deploy:
         provider: heroku
         api_key: $HerokuKey
-        app: pokedexBackend
+        app: mega-pokedex
