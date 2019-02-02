@@ -3,14 +3,23 @@ jobs:
     - stage: build application
       script:
         - mvn compile
-    - stage: static code analysis
-      addons:
-        sonarcloud:
-          organization: "mega-pokedex"
-          token: $SonarToken
-      script:
-        - mvn org.jacoco:jacoco-maven-plugin:prepare-agent javadoc:javadoc verify sonar:sonar
+#    - stage: static code analysis
+#      addons:
+#        sonarcloud:
+#          organization: "mega-pokedex"
+#          token: $SonarToken
+#      script:
+#        - mvn org.jacoco:jacoco-maven-plugin:prepare-agent javadoc:javadoc verify sonar:sonar
     - stage: deploy to staging
+      script: skip
+      deploy:
+        provider: heroku
+        api_key: $HerokuKey
+        app: mega-pokedex-staging
+#
+# insert shit
+#
+    - stage: deploy to production
       script: skip
       deploy:
         provider: heroku
