@@ -6,7 +6,7 @@ jobs:
     - stage: static code analysis
       addons:
         sonarcloud:
-          organization: mega-pokedex
+          organization: "mega-pokedex"
           token: $SonarToken
       script:
         - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
