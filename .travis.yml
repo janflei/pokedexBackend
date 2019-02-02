@@ -9,5 +9,5 @@ jobs:
       script: skip
       deploy:
         provider: heroku
-        api_key: conf.fetch('key')['keyTravis']
+        api_key: $HerokuKey
         app: pokedexBackend
