@@ -7,6 +7,9 @@ package at.fhv.pokedex.controller;
 import at.fhv.pokedex.model.History;
 import at.fhv.pokedex.model.Pokemon;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class PokedexController {
 	/**
 	 * Description of the property history.
@@ -47,9 +50,9 @@ public class PokedexController {
 		// End of user code
 	}
 	
-	public at.fhv.pokedex.model.History getHistory() throws Exception {
+	public Set<Pokemon> getHistory() throws Exception {
 		// Start of user code getHistory
-		return history;
+		return history.pokemonlist;
 		// End of user code
 	}
 	

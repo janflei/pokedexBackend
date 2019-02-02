@@ -6,8 +6,12 @@ package at.fhv.pokedex.endpoint;
 
 import at.fhv.pokedex.controller.PokedexController;
 import at.fhv.pokedex.model.History;
+import at.fhv.pokedex.model.Pokemon;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @org.springframework.web.bind.annotation.RestController
 public class APIController {
@@ -17,7 +21,7 @@ public class APIController {
 
 	@CrossOrigin(origins = "*")
 	@org.springframework.web.bind.annotation.GetMapping(path="/history")
-	public History getHistory() throws Exception {
+	public Set<Pokemon> getHistory() throws Exception {
 		// Start of user code getHistory
 		return PokedexController.getInstance().getHistory();
 		// End of user code
