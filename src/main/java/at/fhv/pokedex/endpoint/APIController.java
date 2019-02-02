@@ -7,6 +7,7 @@ package at.fhv.pokedex.endpoint;
 import at.fhv.pokedex.controller.PokedexController;
 import at.fhv.pokedex.model.History;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @org.springframework.web.bind.annotation.RestController
 public class APIController {
@@ -14,11 +15,7 @@ public class APIController {
 
 	// End of user code
 
-	@org.springframework.web.bind.annotation.GetMapping(path="/")
-	String home() {
-		return "Hello World!";
-	}
-
+	@CrossOrigin(origins = "*")
 	@org.springframework.web.bind.annotation.GetMapping(path="/history")
 	public History getHistory() throws Exception {
 		// Start of user code getHistory
@@ -26,6 +23,7 @@ public class APIController {
 		// End of user code
 	}
 
+	@CrossOrigin(origins = "*")
 	@org.springframework.web.bind.annotation.GetMapping(path="/pokemon")
 	public at.fhv.pokedex.model.Pokemon getPokemon(@org.springframework.web.bind.annotation.RequestParam("token") String token) throws Exception {
 		// Start of user code getPokemon
