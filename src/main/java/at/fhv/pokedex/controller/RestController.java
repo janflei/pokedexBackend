@@ -104,22 +104,34 @@ public class RestController {
 	private at.fhv.pokedex.model.Pokemon parseResponse(String response) throws Exception {
 		// Start of user code parseResponse
         System.out.println(response);
-        JSONObject json = new JSONObject(response);
-        Pokemon pokemon = new Pokemon();
-        pokemon.setBaseexp(json.getInt("base_experience") + "");
-        pokemon.setHeight(json.getInt("height") + "");
-        pokemon.setImageurl(json.getJSONObject("sprites").getString("front_default"));
-        pokemon.setName(json.getString("name"));
-        pokemon.setOrder(json.getInt("order")+"");
-        pokemon.setWeight(json.getInt("weight")+"");
-        JSONArray arr = json.getJSONArray("types");
-        Set<String> set = new HashSet<String>();
-        for (int i = 0; i < arr.length(); i++) {
-            set.add(arr.getJSONObject(i).getJSONObject("type").getString("name"));
+        if(response.startsWith("{")) {
+            JSONObject json = new JSONObject(response);
+            Pokemon pokemon = new Pokemon();
+            pokemon.setBaseexp(json.getInt("base_experience") + "");
+            pokemon.setHeight(json.getInt("height") + "");
+            pokemon.setImageurl(json.getJSONObject("sprites").getString("front_default"));
+            pokemon.setName(json.getString("name"));
+            pokemon.setOrder(json.getInt("order") + "");
+            pokemon.setWeight(json.getInt("weight") + "");
+            JSONArray arr = json.getJSONArray("types");
+            Set<String> set = new HashSet<String>();
+            for (int i = 0; i < arr.length(); i++) {
+                set.add(arr.getJSONObject(i).getJSONObject("type").getString("name"));
+            }
+            pokemon.setTypes(set);
+
+            return pokemon;
+        } else {
+            Pokemon missing = new Pokemon();
+            missing.setBaseexp("???");
+            missing.setHeight("???");
+            missing.setImageurl("https://wiki.p-insurgence.com/images/0/09/722.png");
+            missing.setName("Pokemon not found");
+            missing.setOrder("???");
+            missing.setWeight("???");
+            return missing;
         }
-        pokemon.setTypes(set);
-        return pokemon;
-		// End of user code
+        // End of user code
 	}
 
 	
