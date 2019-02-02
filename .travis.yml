@@ -9,7 +9,7 @@ jobs:
           organization: "mega-pokedex"
           token: $SonarToken
       script:
-        - mvn sonar:sonar
+        - mvn org.jacoco:jacoco-maven-plugin:prepare-agent javadoc:javadoc verify sonar:sonar
     - stage: deploy to staging
       script: skip
       deploy:
