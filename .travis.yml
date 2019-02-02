@@ -1,0 +1,11 @@
+jobs:
+  include:
+  - stage: build application
+    script:
+    - mvn compile
+  - stage: deploy to production
+      script: skip
+      deploy: &heroku
+        provider: heroku
+        api_key: Ev39pKLlBblhDQSm78rE99x+wksbB2wFhvS0ndbGp8+Lnd3DPwhWsrVPDUK7FlNJL91Q+aOVYUTV1GtRAUYriU01qbqx41PH1EKQMQbmUcn9rHoeOgmNAiy11pbFPeDMKmutAkXVLPZxZaw6h4Ii+xyC7/rSvJKONhYtUOYBadG+84Qo5u4mcjXQgK+zh3OjHz04BHUBq2w3agZ6Z460uOVcG68z1qsBDWiEGyhdDE07ywGWeRDmFRHg+fsePgK+n0vPlEjKcME8xPoCjUJ6syyYdl2Yr9wegiFg1gS3m6eGJzpbajkihw7gNTbZYbIxaUWGsN9GOla02PhaAwjoZIX+65iDFaAH1r1p6qWpRUZUiQtGYphjAvDQgvc7zcBHIcIhv/4mYIKcM5JOlkqxkrXMHyx9bmVqtctPZ9xtnHOkAKcosm2E7E5IgR3rDLWvehxULGtHLUjNfnMS0ZSzpU+3P+pI/+e+/yoKTKV0VrWinMqjql5+doal4wOyko7+sUHy2BnYEKjnt9yLVx42TNd2TGgB8MdhIbHTq+4oUKtmmG+OyXbkQ7g0V42WXZc6UOOyiIyWVx0C/Rt5MfDXHHfhEyFyWrlmudGz7/FMAe/w/WUEHj5BHBXQH9Mm7bVUbiIAsPIu8WhjUx+jl2JmC6jVqLZGrLOqP6LJ8WON4o0=
+        app: mega-pokedex
