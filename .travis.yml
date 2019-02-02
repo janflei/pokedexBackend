@@ -3,6 +3,23 @@ jobs:
     - stage: build application
       script:
         - mvn compile
+    - stage: static code analysis
+      addons:
+        sonarcloud:
+          organization: mega-pokedex
+          token: $SonarTokken
+      script:
+          - mvn org.jacoco:jacoco-maven-plugin:prepare-agent javadoc:javadoc verify sonar:sonar
+          - cd ..
+          - "git clone https://github.com/mega-pokedex/doc.git"
+          - rm -rf docs/generated/jacoco-ut docs/generated/jacoco-it docs/generated/apidocs
+          - cp -r application/target/site/jacoco-ut docs/generated/
+          - cp -r application/target/site/jacoco-it docs/generated/
+          - cp -r application/target/site/apidocs docs/generated/
+          - cd docs/generated
+          - git add --all
+          - git commit -am "update documentation"
+          - git push "https://${TRAVIS_GITHUB_TOKEN}@https://github.com/mega-pokedex/doc.git" master
     - stage: deploy to staging
       script: skip
       deploy:
