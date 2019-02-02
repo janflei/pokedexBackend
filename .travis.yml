@@ -1,5 +1,3 @@
-conf = YAML.load_file("env.yml")
-
 jobs:
   include:
     - stage: build application
