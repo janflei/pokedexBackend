@@ -27,8 +27,7 @@ jobs:
         - mvn javadoc:javadoc
         - cd ..
         - git clone https://github.com/mega-pokedex/doc.git
-        - rm -rf doc/generated
-        - cp -r /home/travis/build/mega-pokedex/pokedexBackend/target/site/apidocs doc/generated/
+        - cp -r /home/travis/build/mega-pokedex/pokedexBackend/target/site/apidocs doc/docs/
         - cd doc
         - git add .
         - git commit -m "update documentation"
