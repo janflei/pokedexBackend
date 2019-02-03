@@ -22,3 +22,14 @@ jobs:
         provider: heroku
         api_key: $HerokuKey
         app: mega-pokedex
+    - stage: build documantation
+      script:
+        - mvn javadoc:javadoc
+        - cd ..
+        - git clone https://github.com/mega-pokedex/doc.git
+        - rm -rf docs/generated
+        - cp -r application/target/site/apidocs docs/generated/
+        - cd docs
+        - git add .
+        - git commit -m "update documentation"
+        - git push "https://${TRAVIS_GITHUB_TOKEN}@github.com/mega-pokedex/doc.git" master
