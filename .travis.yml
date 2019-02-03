@@ -16,8 +16,6 @@ jobs:
         provider: heroku
         api_key: $HerokuKey
         app: mega-pokedex-staging
-#
-#
     - stage: deploy to production
       script: skip
       deploy:
