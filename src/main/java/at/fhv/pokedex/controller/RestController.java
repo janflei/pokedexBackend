@@ -88,8 +88,6 @@ public class RestController {
         } catch (IOException e) {
 
             e.printStackTrace();
-        } finally {
-            conn.disconnect();
         }
 
 		// End of user code
