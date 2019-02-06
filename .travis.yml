@@ -23,7 +23,7 @@ jobs:
       script:
           - cd ..
           - git clone https://github.com/mega-pokedex/pokedexCucumber.git
-          - cd tests
+          - cd pokedexCucumber
           - mvn verify
           - cd ..
           - git clone https://github.com/mega-pokedex/doc.git
