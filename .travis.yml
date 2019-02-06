@@ -26,10 +26,13 @@ jobs:
           - git clone https://github.com/mega-pokedex/pokedexCucumber.git
           - cd pokedexCucumber
           - pwd
+          - wget https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
+          - mkdir geckodriver
+          - tar -xzf geckodriver-v0.11.1-linux64.tar.gz -C geckodriver
+          - export PATH=$PATH:$PWD/geckodriver
           - mvn verify
           - cd ..
           - pwd
-          - ls -R | grep cucumber.json
           - git clone https://github.com/mega-pokedex/doc.git
           - rm -rf doc/generated/target
           - cp -r pokedexCucumber/target/ doc/generated/
