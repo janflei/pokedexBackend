@@ -19,6 +19,23 @@ jobs:
         provider: heroku
         api_key: $HerokuKey
         app: mega-pokedex-staging
+    - stage: automatic user acceptance and performance tests on staging
+      script:
+          - cd ..
+          - git clone https://github.com/mega-pokedex/pokedexCucumber.git
+          - cd tests
+          - mvn verify
+          - cd ..
+          - git clone https://github.com/mega-pokedex/doc.git
+          #- rm -rf docs/generated/cukedoctor docs/generated/walk_through.mp4
+          - cp -r pokedexCucumber/target/cukedoctor doc/generated/
+          #- rm -rf docs/generated/jmeter
+          - cp -r pokedexCucumber/target/jmeter/reports/performance* doc/generated/jmeter
+          - cd doc/generated
+          #- ../../tests/scripts/get_testingbot_video.py
+          - git add --all
+          - git commit -am "update documentation"
+          - git push "https://${TRAVIS_GITHUB_TOKEN}@github.com/mega-pokedex/doc.git" master
     - stage: deploy to production
       script: skip
       deploy:
