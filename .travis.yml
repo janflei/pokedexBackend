@@ -26,13 +26,12 @@ jobs:
           - git clone https://github.com/mega-pokedex/pokedexCucumber.git
           - cd pokedexCucumber
           - pwd
-          - mvn clean
           - mvn verify
           - cd ..
           - pwd
           - git clone https://github.com/mega-pokedex/doc.git
           #- rm -rf docs/generated/cukedoctor docs/generated/walk_through.mp4
-          - cp -r pokedexCucumber/target/cumumber.json doc/generated/
+          - cp -r pokedexCucumber/target/ doc/generated/
           #- rm -rf docs/generated/jmeter
           #- cp -r pokedexCucumber/target/jmeter/reports/performance* doc/generated/jmeter
           - cd doc/generated
