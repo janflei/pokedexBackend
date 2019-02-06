@@ -3,16 +3,16 @@ jobs:
     - stage: build application
       script:
         - mvn compile
-#    - stage: static code analysis
-#      addons:
-#        sonarcloud:
-#          organization: "mega-pokedex"
-#          token: $SonarToken
-#      script:
-#        - mvn clean install sonar:sonar -Dsonar.host.url=https:/sonarqube.com -Dsonar.login=${SONARQUBE_TOKEN}
-#    - stage: unit tests
-#      script:
-#        - mvn test
+    - stage: static code analysis
+      addons:
+        sonarcloud:
+          organization: "mega-pokedex"
+          token: $SonarToken
+      script:
+        - mvn clean install sonar:sonar -Dsonar.host.url=https:/sonarqube.com -Dsonar.login=${SONARQUBE_TOKEN}
+    - stage: unit tests
+      script:
+        - mvn test
     - stage: deploy to staging
       script: skip
       deploy:
@@ -22,25 +22,18 @@ jobs:
     - stage: automatic user acceptance and performance tests on staging
       script:
           - cd ..
-          - pwd
           - git clone https://github.com/mega-pokedex/pokedexCucumber.git
           - cd pokedexCucumber
-          - pwd
           - wget https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
           - mkdir geckodriver
           - tar -xzf geckodriver-v0.11.1-linux64.tar.gz -C geckodriver
           - export PATH=$PATH:$PWD/geckodriver
           - mvn verify
           - cd ..
-          - pwd
           - git clone https://github.com/mega-pokedex/doc.git
           - rm -rf doc/generated/target
           - cp -r pokedexCucumber/target/ doc/generated/
-          #- rm -rf docs/generated/jmeter
-          #- cp -r pokedexCucumber/target/jmeter/reports/performance* doc/generated/jmeter
           - cd doc/generated
-          - pwd
-          #- ../../tests/scripts/get_testingbot_video.py
           - git add --all
           - git commit -am "update documentation"
           - git push "https://${TRAVIS_GITHUB_TOKEN}@github.com/mega-pokedex/doc.git" master
