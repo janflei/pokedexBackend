@@ -29,8 +29,9 @@ jobs:
           - mvn verify
           - cd ..
           - pwd
+          - ls -R | grep cucumber.json
           - git clone https://github.com/mega-pokedex/doc.git
-          #- rm -rf docs/generated/cukedoctor docs/generated/walk_through.mp4
+          - rm -rf doc/generated/target
           - cp -r pokedexCucumber/target/ doc/generated/
           #- rm -rf docs/generated/jmeter
           #- cp -r pokedexCucumber/target/jmeter/reports/performance* doc/generated/jmeter
