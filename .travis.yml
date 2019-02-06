@@ -28,9 +28,9 @@ jobs:
           - cd ..
           - git clone https://github.com/mega-pokedex/doc.git
           #- rm -rf docs/generated/cukedoctor docs/generated/walk_through.mp4
-          - cp -r pokedexCucumber/target/cukedoctor doc/generated/
+          - cp -r pokedexCucumber/target/cumumber.json doc/generated/
           #- rm -rf docs/generated/jmeter
-          - cp -r pokedexCucumber/target/jmeter/reports/performance* doc/generated/jmeter
+          #- cp -r pokedexCucumber/target/jmeter/reports/performance* doc/generated/jmeter
           - cd doc/generated
           #- ../../tests/scripts/get_testingbot_video.py
           - git add --all
