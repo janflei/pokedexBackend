@@ -24,6 +24,7 @@ jobs:
           - cd ..
           - git clone https://github.com/mega-pokedex/pokedexCucumber.git
           - cd pokedexCucumber
+          - mvn clean
           - mvn verify
           - cd ..
           - git clone https://github.com/mega-pokedex/doc.git
